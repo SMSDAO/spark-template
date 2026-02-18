@@ -2,6 +2,8 @@
 
 This guide covers all the pre-built UI components available in the Spark Template, based on Radix UI primitives and styled with Tailwind CSS.
 
+> 💡 **Visual Learner?** Check out the **[UI Component Showcase](UI_SHOWCASE.md)** for screenshots and visual examples of all components in action!
+
 ## 📦 Component Overview
 
 The template includes **45+ pre-built components** located in `src/components/ui/`. All components are:

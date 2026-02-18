@@ -29,6 +29,18 @@ npm run build
 
 Visit `http://localhost:5173` to see your app!
 
+## 🎨 UI Component Showcase
+
+The template includes **45+ pre-built UI components** that are accessible, customizable, and production-ready.
+
+![Spark Template UI Showcase](https://github.com/user-attachments/assets/7520fad1-fb33-40ef-9ec2-01620dd93897)
+
+*Interactive showcase featuring buttons, forms, alerts, tabs, accordions, and more*
+
+**Explore the components:**
+- 🎯 **[Visual Showcase](docs/UI_SHOWCASE.md)** - See all components with screenshots
+- 📖 **[Component API Documentation](docs/COMPONENTS.md)** - Detailed usage guide
+
 ## 📚 Comprehensive Documentation
 
 **New to Spark Template?** Check out our complete documentation in the [`docs/`](docs/) directory:

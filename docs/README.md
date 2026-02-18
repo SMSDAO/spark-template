@@ -21,6 +21,11 @@ Welcome to the comprehensive documentation for the Spark Template project. This 
   - Design patterns
 
 ### Components
+- **[UI Component Showcase](UI_SHOWCASE.md)** - Visual guide with screenshots
+  - Live component examples
+  - Visual reference for all UI components
+  - Interactive demos
+  - Screenshots and usage examples
 - **[Components Documentation](COMPONENTS.md)** - Complete guide to UI components
   - Available components
   - Component usage examples
