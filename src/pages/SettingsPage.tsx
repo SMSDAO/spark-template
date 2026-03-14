@@ -19,16 +19,37 @@ export default function SettingsPage() {
   const [weeklyDigest, setWeeklyDigest] = useState(true);
   const [savedProfile, setSavedProfile] = useState(false);
   const [savedPassword, setSavedPassword] = useState(false);
+  const [passwordError, setPasswordError] = useState('');
   const [currentPw, setCurrentPw] = useState('');
   const [newPw, setNewPw] = useState('');
   const [confirmPw, setConfirmPw] = useState('');
+  const [emailError, setEmailError] = useState('');
 
   const handleSaveProfile = () => {
+    if (!displayName.trim()) return;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
+    setEmailError('');
     setSavedProfile(true);
     setTimeout(() => setSavedProfile(false), 3000);
   };
 
   const handleSavePassword = () => {
+    if (!currentPw || !newPw || !confirmPw) {
+      setPasswordError('All password fields are required.');
+      return;
+    }
+    if (newPw !== confirmPw) {
+      setPasswordError('New password and confirmation do not match.');
+      return;
+    }
+    if (newPw.length < 6) {
+      setPasswordError('New password must be at least 6 characters.');
+      return;
+    }
+    setPasswordError('');
     setSavedPassword(true);
     setCurrentPw(''); setNewPw(''); setConfirmPw('');
     setTimeout(() => setSavedPassword(false), 3000);
@@ -63,6 +84,9 @@ export default function SettingsPage() {
               {currentUser?.role} — <span style={{ color: '#94a3b8', fontSize: '12px' }}>Contact admin to change role</span>
             </div>
           </div>
+          {emailError && (
+            <div className="text-sm" style={{ color: '#ff4466' }}>{emailError}</div>
+          )}
           {savedProfile && (
             <div className="flex items-center gap-2 text-sm" style={{ color: '#00ff88' }}>
               <CheckCircle2 size={16} /> Profile saved successfully!
@@ -140,6 +164,9 @@ export default function SettingsPage() {
             <Label style={{ color: '#94a3b8' }}>Confirm New Password</Label>
             <Input type="password" value={confirmPw} onChange={e => setConfirmPw(e.target.value)} placeholder="••••••••" style={inputStyle} />
           </div>
+          {passwordError && (
+            <div className="text-sm" style={{ color: '#ff4466' }}>{passwordError}</div>
+          )}
           {savedPassword && (
             <div className="flex items-center gap-2 text-sm" style={{ color: '#00ff88' }}>
               <CheckCircle2 size={16} /> Password updated successfully!

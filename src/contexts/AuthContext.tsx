@@ -19,6 +19,8 @@ interface AuthContextType {
   hasPermission: (permission: string) => boolean;
 }
 
+// DEMO ONLY: passwords stored in plain text for demonstration purposes.
+// Production implementations must use proper password hashing (e.g. bcrypt).
 const USERS = [
   { id: '1', username: 'admin', password: 'admin123', role: 'admin' as Role, name: 'Admin User', email: 'admin@example.com' },
   { id: '2', username: 'dev', password: 'dev123', role: 'developer' as Role, name: 'Dev User', email: 'dev@example.com' },
