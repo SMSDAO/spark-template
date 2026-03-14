@@ -19,7 +19,7 @@ const content: Record<string, React.ReactNode> = {
       </p>
       <h3 className="text-lg font-semibold mb-2" style={{ color: '#e2e8f0' }}>Prerequisites</h3>
       <ul className="list-disc list-inside mb-4 space-y-1" style={{ color: '#94a3b8' }}>
-        <li>Node.js 18+ or higher</li>
+        <li>Node.js 18+</li>
         <li>npm 9+ or yarn/pnpm</li>
         <li>Git</li>
       </ul>
