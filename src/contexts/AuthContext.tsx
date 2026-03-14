@@ -20,7 +20,15 @@ interface AuthContextType {
 }
 
 // DEMO ONLY: passwords stored in plain text for demonstration purposes.
-// Production implementations must use proper password hashing (e.g. bcrypt).
+// A runtime guard ensures this in-browser auth is never silently used outside
+// development / demo environments.  Production systems MUST use server-side
+// password hashing (e.g. bcrypt) and a proper auth service.
+if (import.meta.env.PROD && import.meta.env.VITE_APP_ENV !== 'demo') {
+  console.error(
+    '[AuthContext] In-memory demo auth must not be used in a production deployment. ' +
+    'Replace with a server-side authentication service.',
+  );
+}
 const USERS = [
   { id: '1', username: 'admin', password: 'admin123', role: 'admin' as Role, name: 'Admin User', email: 'admin@example.com' },
   { id: '2', username: 'dev', password: 'dev123', role: 'developer' as Role, name: 'Dev User', email: 'dev@example.com' },

@@ -24,14 +24,18 @@ const roleStats = [
   { role: 'Auditor', count: 1 },
 ];
 
-const auditLogs = [
-  { time: '2024-01-15 14:32:01', action: 'USER_LOGIN', user: 'admin', status: 'success' },
-  { time: '2024-01-15 14:28:45', action: 'SETTINGS_UPDATE', user: 'admin', status: 'success' },
-  { time: '2024-01-15 14:15:22', action: 'USER_LOGIN', user: 'dev', status: 'success' },
-  { time: '2024-01-15 13:58:10', action: 'DEPLOY_APP', user: 'dev', status: 'success' },
-  { time: '2024-01-15 13:44:55', action: 'USER_LOGIN', user: 'user', status: 'failed' },
-  { time: '2024-01-15 13:30:00', action: 'VIEW_LOGS', user: 'auditor', status: 'success' },
-];
+const auditLogs = (() => {
+  const now = Date.now();
+  const fmt = (ms: number) => new Date(now - ms).toISOString().replace('T', ' ').slice(0, 19);
+  return [
+    { time: fmt(2 * 60 * 1000),     action: 'USER_LOGIN',      user: 'admin',   status: 'success' },
+    { time: fmt(5 * 60 * 1000),     action: 'SETTINGS_UPDATE', user: 'admin',   status: 'success' },
+    { time: fmt(18 * 60 * 1000),    action: 'USER_LOGIN',      user: 'dev',     status: 'success' },
+    { time: fmt(34 * 60 * 1000),    action: 'DEPLOY_APP',      user: 'dev',     status: 'success' },
+    { time: fmt(47 * 60 * 1000),    action: 'USER_LOGIN',      user: 'user',    status: 'failed'  },
+    { time: fmt(62 * 60 * 1000),    action: 'VIEW_LOGS',       user: 'auditor', status: 'success' },
+  ];
+})();
 
 const roleColor: Record<string, string> = {
   admin: '#00f5ff',

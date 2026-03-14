@@ -55,11 +55,24 @@ spark-template/
 │   ├── hooks/             # Custom React hooks
 │   │   └── use-mobile.ts
 │   │
+│   ├── contexts/          # React context providers
+│   │   └── AuthContext.tsx  # RBAC auth (roles: Admin/Developer/User/Auditor)
+│   │
+│   ├── pages/             # Dashboard pages
+│   │   ├── LoginPage.tsx       # Auth login with demo credentials
+│   │   ├── HomePage.tsx        # Landing / home
+│   │   ├── UserDashboard.tsx   # Activity chart, notifications, account
+│   │   ├── AdminDashboard.tsx  # System metrics, user mgmt, audit logs
+│   │   ├── DeveloperDashboard.tsx # API health, logs, env, deployments
+│   │   ├── UsersPage.tsx       # User CRUD management
+│   │   ├── SettingsPage.tsx    # Profile & preferences
+│   │   └── DocsPage.tsx        # In-app documentation viewer
+│   │
 │   ├── lib/               # Utility functions and helpers
 │   │   └── utils.ts
 │   │
 │   ├── styles/            # CSS and styling
-│   │   └── theme.css
+│   │   └── theme.css      # Neo-Glow CSS variables and utilities
 │   │
 │   ├── App.tsx            # Main application component
 │   ├── main.tsx           # Application entry point
@@ -92,6 +105,34 @@ spark-template/
 ```
 
 ## 🎨 Architecture Patterns
+
+### Application Architecture (v1.0.0)
+
+The application uses an **auth-gated, role-based routing pattern**:
+
+```
+┌─────────────────────────────────────────────┐
+│               App.tsx (root)                │
+│  ┌──────────────────────────────────────┐   │
+│  │         AuthContext (RBAC)           │   │
+│  │  roles: Admin | Developer | User |   │   │
+│  │         Auditor                      │   │
+│  └──────────┬───────────────────────────┘   │
+│             │                               │
+│     Not authenticated?                      │
+│        └──► LoginPage                       │
+│                                             │
+│     Authenticated?                          │
+│        └──► Navigation + Page Router        │
+│             ├── HomePage                    │
+│             ├── UserDashboard               │
+│             ├── AdminDashboard (Admin only) │
+│             ├── DeveloperDashboard (Dev+)   │
+│             ├── UsersPage                   │
+│             ├── SettingsPage                │
+│             └── DocsPage                   │
+└─────────────────────────────────────────────┘
+```
 
 ### Component Architecture
 

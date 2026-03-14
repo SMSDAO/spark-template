@@ -1,18 +1,36 @@
-# ✨ Welcome to Your Spark Template!
+# ✨ SPARK Enterprise Platform
 
-You've just launched your brand-new Spark Template Codespace — everything's fired up and ready for you to explore, build, and create with Spark!
+A production-ready enterprise application built on the Spark Template — featuring a modern **Neo-Glow UI**, enterprise dashboards, RBAC authentication, and a comprehensive component library.
 
-This template is your blank canvas. It comes with a minimal setup to help you get started quickly with Spark development.
+## 🖼️ UI Preview
+
+### Login & Home
+![Login Page](docs/assets/ui/login-page.png)
+*Neo-Glow login screen with one-click demo credential selection*
+
+### User Dashboard
+![User Dashboard](docs/assets/ui/user-dashboard.png)
+*Real-time activity chart, notifications feed, and account details*
+
+### Admin Dashboard
+![Admin Dashboard](docs/assets/ui/admin-dashboard.png)
+*System metrics, user management table, role chart, and audit logs*
+
+### Developer Dashboard
+![Developer Dashboard](docs/assets/ui/developer-dashboard.png)
+*API health monitor, deployment tracker, system metrics chart, and log viewer*
 
 ## 🚀 What's Inside?
 
 - **⚡ Vite** - Lightning-fast development with HMR
 - **⚛️ React 19** - Latest React with modern features
-- **🎨 Tailwind CSS 4** - Utility-first styling
+- **🎨 Tailwind CSS 4** - Utility-first styling with Neo-Glow theme
 - **🔧 TypeScript** - Type-safe development
 - **🎯 GitHub Spark** - GitHub's application framework
 - **🧩 45+ UI Components** - Pre-built with Radix UI
-- **📦 Production-ready** - Configured and optimized
+- **🔐 RBAC Auth** - Role-based access control (Admin/Developer/User/Auditor)
+- **📊 Enterprise Dashboards** - User, Admin, and Developer dashboards
+- **📦 Production-ready** - v1.0.0 release
 
 ## 🏃 Quick Start
 
@@ -29,13 +47,18 @@ npm run build
 
 Visit `http://localhost:5173` to see your app!
 
+### Demo Credentials
+
+| Role | Username | Password |
+|------|----------|----------|
+| Admin | `admin` | `admin123` |
+| Developer | `dev` | `dev123` |
+| User | `user` | `user123` |
+| Auditor | `auditor` | `audit123` |
+
 ## 🎨 UI Component Showcase
 
 The template includes **45+ pre-built UI components** that are accessible, customizable, and production-ready.
-
-![Spark Template UI Showcase](https://github.com/user-attachments/assets/7520fad1-fb33-40ef-9ec2-01620dd93897)
-
-*Interactive showcase featuring buttons, forms, alerts, tabs, accordions, and more*
 
 **Explore the components:**
 - 🎯 **[Visual Showcase](docs/UI_SHOWCASE.md)** - See all components with screenshots
@@ -81,25 +104,33 @@ No problem! If you were just checking things out and don't need to keep this cod
 | React | 19.0.0 | UI library |
 | TypeScript | 5.7.2 | Type safety |
 | Vite | 7.2.6 | Build tool |
-| Tailwind CSS | 4.1.11 | Styling |
+| Tailwind CSS | 4.1.11 | Styling + Neo-Glow theme |
 | Radix UI | Latest | Component primitives |
 | React Query | 5.x | Data fetching |
+| Recharts | 2.x | Dashboard charts |
+| Framer Motion | 12.x | Animations |
 
 ## 📦 Project Structure
 
 ```
 spark-template/
-├── docs/              # Comprehensive documentation
+├── docs/
+│   ├── assets/ui/         # UI screenshots (auto-captured)
+│   └── *.md               # Comprehensive documentation
 ├── src/
-│   ├── components/    # React components
-│   │   └── ui/       # Pre-built UI components (45+)
-│   ├── hooks/        # Custom React hooks
-│   ├── lib/          # Utility functions
-│   ├── styles/       # CSS and theme
-│   └── App.tsx       # Main application
-├── package.json      # Dependencies and scripts
-├── vite.config.ts    # Vite configuration
-└── tailwind.config.js # Tailwind configuration
+│   ├── components/        # React components
+│   │   └── ui/           # Pre-built UI components (45+)
+│   ├── contexts/          # AuthContext (RBAC)
+│   ├── pages/             # Dashboard pages
+│   ├── hooks/             # Custom React hooks
+│   ├── lib/               # Utility functions
+│   ├── styles/            # CSS and Neo-Glow theme
+│   └── App.tsx            # Main application (auth-gated)
+├── .github/workflows/     # CI/CD pipelines
+├── CHANGELOG.md           # Version history
+├── package.json           # Dependencies (v1.0.0)
+├── vite.config.ts         # Vite configuration
+└── tailwind.config.js     # Tailwind configuration
 ```
 
 ## 🤝 Contributing
