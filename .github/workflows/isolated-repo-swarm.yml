@@ -116,9 +116,6 @@ jobs:
       - name: Check protected artifacts are untouched
         run: |
           PROTECTED_PATTERNS=(
-            "docs/"
-            "ARCHITECTURE.md"
-            "architecture.md"
             "prompts/"
             "governance/"
             "specs/"

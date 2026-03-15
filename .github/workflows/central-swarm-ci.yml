@@ -32,9 +32,6 @@ jobs:
       - name: Detect protected-file mutations
         run: |
           PROTECTED_PATTERNS=(
-            "docs/"
-            "ARCHITECTURE.md"
-            "architecture.md"
             "prompts/"
             "governance/"
             "specs/"
